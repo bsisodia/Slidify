@@ -1,0 +1,62 @@
+---
+title       : Health Risk Prediction
+subtitle    : Shiny App for Developing Data Products class project 
+author      : BS
+job         : Data Science Student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]     # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+
+
+---
+
+## Health Risk Prediction - Problem
+
+* Health Risk Prediction is a very challenging and widely used problem.
+* Insurance companies to employment screening companies are using it.
+* It is very difficult to do true prediction due to complex nature of problem.
+* If there is an application which can do this prediction reliably then it would help not only those companies but also to individuals so that they can change their lifestyle and live healthy longer
+* This app is just a beginning of complex solution. There is more work needs to be done.
+![width](HEALTH-RISK.jpg)
+
+--- .class #id 
+
+## Health Risk Prediction - Input Parameters
+We are using following input parameters:
+
+1. Weight: It should be entered in pounds. It impacts BMI.
+1. Height: It should be entered in inches. It impacts BMI.
+1. Existing pre-conditions: These conditions directly impacts health and increases risks.
+1. Date of birth: It is used to calculate age of individuals. With Age, risk increases.
+
+--- .class #id
+
+## Health Risk Prediction - Logic
+The application is using following logic:
+
+1. Use weight & height to compute BMI - $weight/height^2*703$
+1. BMI in 25-30 indicates 'OverWeight' and hence risk score of 0.4
+1. BMI >30 indicates 'Obesity' and hence risk score of 0.6
+1. Each Pre-conditions adds risk to health and so additional score of 0.1
+1. Age is a factor on health risk. Age of 50-65: Risk of 0.1, Age 65-75: Risk of 0.15 and Age > 75- risk of 0.2
+
+
+Sample **Risk** for:
+Weight=200 lbs, Height=60 Inches, Existing Conditions=Diabotic & Thyroid, Date of Birth=1950-01-01
+
+```
+## [1] 0.9
+```
+
+--- .class #id
+
+##  Health Risk Prediction - Next Steps
+The application is having a simple calculation but it can be extended to include complex and better prediction model. Here are some enhancements which can be done:
+
+1. Add more variables like gender, race, other health parameters (smoking, exercise, etc.)
+1. Add better prediction logic then simple calculations. 
+1. Use a sample data for building model and testing it.
+
